@@ -6,52 +6,52 @@
 
 [For the ES5-only guide click here](es5/).
 
-## Table of Contents
+## 目录
 
-  1. [Types](#types)
-  1. [References](#references)
-  1. [Objects](#objects)
-  1. [Arrays](#arrays)
-  1. [Destructuring](#destructuring)
-  1. [Strings](#strings)
-  1. [Functions](#functions)
-  1. [Arrow Functions](#arrow-functions)
-  1. [Constructors](#constructors)
-  1. [Modules](#modules)
-  1. [Iterators and Generators](#iterators-and-generators)
-  1. [Properties](#properties)
-  1. [Variables](#variables)
-  1. [Hoisting](#hoisting)
-  1. [Comparison Operators & Equality](#comparison-operators--equality)
-  1. [Blocks](#blocks)
-  1. [Comments](#comments)
-  1. [Whitespace](#whitespace)
-  1. [Commas](#commas)
-  1. [Semicolons](#semicolons)
-  1. [Type Casting & Coercion](#type-casting--coercion)
-  1. [Naming Conventions](#naming-conventions)
-  1. [Accessors](#accessors)
-  1. [Events](#events)
+  1. [类型](#types)
+  1. [参考](#references)
+  1. [对象](#objects)
+  1. [数组](#arrays)
+  1. [解构](#destructuring)
+  1. [字符串](#strings)
+  1. [函数](#functions)
+  1. [箭头函数](#arrow-functions)
+  1. [构造函数](#constructors)
+  1. [模块](#modules)
+  1. [Iterators & Generators ](#iterators-and-generators)
+  1. [属性](#properties)
+  1. [变量](#variables)
+  1. [提升](#hoisting)
+  1. [比较运算符 & 等号](#comparison-operators--equality)
+  1. [代码块](#blocks)
+  1. [注释](#comments)
+  1. [空白](#whitespace)
+  1. [逗号](#commas)
+  1. [分号](#semicolons)
+  1. [类型转换](#type-casting--coercion)
+  1. [命名规则](#naming-conventions)
+  1. [存取器](#accessors)
+  1. [事件](#events)
   1. [jQuery](#jquery)
-  1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
-  1. [ECMAScript 6 Styles](#ecmascript-6-styles)
-  1. [Testing](#testing)
-  1. [Performance](#performance)
-  1. [Resources](#resources)
-  1. [In the Wild](#in-the-wild)
-  1. [Translation](#translation)
-  1. [The JavaScript Style Guide Guide](#the-javascript-style-guide-guide)
-  1. [Chat With Us About Javascript](#chat-with-us-about-javascript)
+  1. [ECMAScript 5 兼容性](#ecmascript-5-compatibility)
+  1. [ECMAScript 6 编码规范](#ecmascript-6-styles)
+  1. [测试](#testing)
+  1. [性能](#performance)
+  1. [资源](#resources)
+  1. [使用人群](#in-the-wild)
+  1. [翻译](#translation)
+  1. [JavaScript 编码规范说明](#the-javascript-style-guide-guide)
+  1. [一起来讨论 JavaScript](#chat-with-us-about-javascript)
   1. [Contributors](#contributors)
   1. [License](#license)
 
-## Types
+##  类型
 
-  - [1.1](#1.1) <a name='1.1'></a> **Primitives**: When you access a primitive type you work directly on its value.
+  - [1.1](#1.1) <a name='1.1'></a> **基本类型**: 直接存取基本类型。
 
-    + `string`
-    + `number`
-    + `boolean`
+    + `字符串`
+    + `数值`
+    + `布尔类型`
     + `null`
     + `undefined`
 
@@ -63,11 +63,11 @@
 
     console.log(foo, bar); // => 1, 9
     ```
-  - [1.2](#1.2) <a name='1.2'></a> **Complex**: When you access a complex type you work on a reference to its value.
+  - [1.2](#1.2) <a name='1.2'></a> **复制类型**: 通过引用的方式存取复杂类型。
 
-    + `object`
-    + `array`
-    + `function`
+    + `对象`
+    + `数组`
+    + `函数`
 
     ```javascript
     const foo = [1, 2];
@@ -128,9 +128,9 @@
 
 **[⬆ back to top](#table-of-contents)**
 
-## Objects
+## 对象
 
-  - [3.1](#3.1) <a name='3.1'></a> Use the literal syntax for object creation.
+  - [3.1](#3.1) <a name='3.1'></a> 使用字面值创建对象。
 
     ```javascript
     // bad
@@ -140,8 +140,9 @@
     const item = {};
     ```
 
-  - [3.2](#3.2) <a name='3.2'></a> If your code will be executed in browsers in script context, don't use [reserved words](http://es5.github.io/#x7.6.1) as keys. It won't work in IE8. [More info](https://github.com/airbnb/javascript/issues/61). It’s OK to use them in ES6 modules and server-side code.
+  - [3.2](#3.2) <a name='3.2'></a> 如果你的代码在浏览器环境下执行, 别使用 [保留字](http://es5.github.io/#x7.6.1) 作为键值。这样的话在 IE8 不会运行。 [更多信息](https://github.com/airbnb/javascript/issues/61). 但在 ES6 模块和服务器端中使用没有问题。
 
+  
     ```javascript
     // bad
     const superman = {
@@ -156,7 +157,7 @@
     };
     ```
 
-  - [3.3](#3.3) <a name='3.3'></a> Use readable synonyms in place of reserved words.
+  - [3.3](#3.3) <a name='3.3'></a> 使用同义词替换需要使用的保留字。
 
     ```javascript
     // bad
@@ -176,9 +177,9 @@
     ```
 
   <a name="es6-computed-properties"></a>
-  - [3.4](#3.4) <a name='3.4'></a> Use computed property names when creating objects with dynamic property names.
+  - [3.4](#3.4) <a name='3.4'></a> 创建有动态属性名的对象时使用可被计算的属性名称。
 
-  > Why? They allow you to define all the properties of an object in one place.
+  > 为什么？因为这样可以让你在一个地方定义所有的对象属性。
 
     ```javascript
 
@@ -202,7 +203,7 @@
     ```
 
   <a name="es6-object-shorthand"></a>
-  - [3.5](#3.5) <a name='3.5'></a> Use object method shorthand.
+  - [3.5](#3.5) <a name='3.5'></a> 使用对象方法的简写。
 
     ```javascript
     // bad
@@ -225,9 +226,9 @@
     ```
 
   <a name="es6-object-concise"></a>
-  - [3.6](#3.6) <a name='3.6'></a> Use property value shorthand.
+  - [3.6](#3.6) <a name='3.6'></a> 使用对象属性值的简写。
 
-  > Why? It is shorter to write and descriptive.
+  > 为什么？因为这样更短更有描述性。
 
     ```javascript
     const lukeSkywalker = 'Luke Skywalker';
@@ -243,9 +244,9 @@
     };
     ```
 
-  - [3.7](#3.7) <a name='3.7'></a> Group your shorthand properties at the beginning of your object declaration.
+  - [3.7](#3.7) <a name='3.7'></a> 在对象属性声明前把简写的属性分组。
 
-  > Why? It's easier to tell which properties are using the shorthand.
+  > 为什么？因为这样能清楚地看出哪些属性使用了简写。
 
     ```javascript
     const anakinSkywalker = 'Anakin Skywalker';
@@ -274,9 +275,9 @@
 
 **[⬆ back to top](#table-of-contents)**
 
-## Arrays
+## 数组
 
-  - [4.1](#4.1) <a name='4.1'></a> Use the literal syntax for array creation.
+  - [4.1](#4.1) <a name='4.1'></a> 使用字面值创建数组。
 
     ```javascript
     // bad
@@ -286,7 +287,7 @@
     const items = [];
     ```
 
-  - [4.2](#4.2) <a name='4.2'></a> Use Array#push instead of direct assignment to add items to an array.
+  - [4.2](#4.2) <a name='4.2'></a> 向数组添加元素时使用 Arrary#push 替代直接赋值。
 
     ```javascript
     const someStack = [];
@@ -300,7 +301,7 @@
     ```
 
   <a name="es6-array-spreads"></a>
-  - [4.3](#4.3) <a name='4.3'></a> Use array spreads `...` to copy arrays.
+  - [4.3](#4.3) <a name='4.3'></a> 使用拓展运算符 `...` 复制数组.
 
     ```javascript
     // bad
@@ -315,7 +316,7 @@
     // good
     const itemsCopy = [...items];
     ```
-  - [4.4](#4.4) <a name='4.4'></a> To convert an array-like object to an array, use Array#from.
+  - [4.4](#4.4) <a name='4.4'></a> .使用 Array#from 把一个类数组对象转换成数组。
 
     ```javascript
     const foo = document.querySelectorAll('.foo');
@@ -324,11 +325,11 @@
 
 **[⬆ back to top](#table-of-contents)**
 
-## Destructuring
+## 解构
 
-  - [5.1](#5.1) <a name='5.1'></a> Use object destructuring when accessing and using multiple properties of an object.
+  - [5.1](#5.1) <a name='5.1'></a> 使用解构存取和使用多属性对象。
 
-  > Why? Destructuring saves you from creating temporary references for those properties.
+  > 为什么？因为解构能减少临时引用对象。
 
     ```javascript
     // bad
@@ -351,7 +352,7 @@
     }
     ```
 
-  - [5.2](#5.2) <a name='5.2'></a> Use array destructuring.
+  - [5.2](#5.2) <a name='5.2'></a> 对数组使用解构赋值。
 
     ```javascript
     const arr = [1, 2, 3, 4];
@@ -364,9 +365,8 @@
     const [first, second] = arr;
     ```
 
-  - [5.3](#5.3) <a name='5.3'></a> Use object destructuring for multiple return values, not array destructuring.
-
-  > Why? You can add new properties over time or change the order of things without breaking call sites.
+  - [5.3](#5.3) <a name='5.3'></a> 需要回传多个值时，使用对象解构，而不是数组解构。
+  > 为什么？增加属性或者改变排序不会改变调用时的位置。
 
     ```javascript
     // bad
@@ -375,7 +375,7 @@
       return [left, right, top, bottom];
     }
 
-    // the caller needs to think about the order of return data
+    // 调用时需要考虑回调数据的顺序。
     const [left, __, top] = processInput(input);
 
     // good
@@ -384,7 +384,7 @@
       return { left, right, top, bottom };
     }
 
-    // the caller selects only the data they need
+    // 调用时只选择需要的数据
     const { left, right } = processInput(input);
     ```
 
@@ -393,7 +393,7 @@
 
 ## Strings
 
-  - [6.1](#6.1) <a name='6.1'></a> Use single quotes `''` for strings.
+  - [6.1](#6.1) <a name='6.1'></a> 字符串使用单引号 `''` 。
 
     ```javascript
     // bad
@@ -403,8 +403,8 @@
     const name = 'Capt. Janeway';
     ```
 
-  - [6.2](#6.2) <a name='6.2'></a> Strings longer than 80 characters should be written across multiple lines using string concatenation.
-  - [6.3](#6.3) <a name='6.3'></a> Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40).
+  - [6.2](#6.2) <a name='6.2'></a> 字符串超过 80 个字节应该使用字符串连接号换行。
+  - [6.3](#6.3) <a name='6.3'></a> Note: If overused, long strings with concatenation could impact performance. 注意：过度使用字串连接符号可能会对性能造成影响。[jsPerf](http://jsperf.com/ya-string-concat) & [讨论](https://github.com/airbnb/javascript/issues/40).
 
     ```javascript
     // bad
@@ -423,9 +423,9 @@
     ```
 
   <a name="es6-template-literals"></a>
-  - [6.4](#6.4) <a name='6.4'></a> When programmatically building up strings, use template strings instead of concatenation.
+  - [6.4](#6.4) <a name='6.4'></a> 程序化生成字符串时，使用模板字符串代替字符串连接。
 
-  > Why? Template strings give you a readable, concise syntax with proper newlines and string interpolation features.
+  > 为什么？模板字符串更为简洁，更具可读性。
 
     ```javascript
     // bad
@@ -447,11 +447,11 @@
 **[⬆ back to top](#table-of-contents)**
 
 
-## Functions
+## 函数
 
-  - [7.1](#7.1) <a name='7.1'></a> Use function declarations instead of function expressions.
+  - [7.1](#7.1) <a name='7.1'></a> 使用函数声明代替函数表达式。
 
-  > Why? Function declarations are named, so they're easier to identify in call stacks. Also, the whole body of a function declaration is hoisted, whereas only the reference of a function expression is hoisted. This rule makes it possible to always use [Arrow Functions](#arrow-functions) in place of function expressions.
+  > 为什么？因为函数声明是可命名的，所以他们在调用栈中更容易被识别。此外，函数声明会把整个函数提升（hoisted），而函数表达式只会把函数的引用变量名提升。这条规则使得[箭头函数](#arrow-functions)可以取代函数表达式。
 
     ```javascript
     // bad
@@ -463,17 +463,17 @@
     }
     ```
 
-  - [7.2](#7.2) <a name='7.2'></a> Function expressions:
+  - [7.2](#7.2) <a name='7.2'></a> 函数表达式:
 
     ```javascript
-    // immediately-invoked function expression (IIFE)
+    // 立即调用的函数表达式 (IIFE)
     (() => {
       console.log('Welcome to the Internet. Please follow me.');
     })();
     ```
 
-  - [7.3](#7.3) <a name='7.3'></a> Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
-  - [7.4](#7.4) <a name='7.4'></a> **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
+  - [7.3](#7.3) <a name='7.3'></a> 永远不要在一个非函数代码块（if、while 等）中声明一个函数，把那个函数赋给一个变量。浏览器允许你这么做，但它们的解析表现不一致。
+  - [7.4](#7.4) <a name='7.4'></a> **注意:** ECMA-262 把 `block` 定义为一组语句。函数声明不是语句。[阅读 ECMA-262 关于这个问题的说明](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
 
     ```javascript
     // bad
@@ -492,7 +492,7 @@
     }
     ```
 
-  - [7.5](#7.5) <a name='7.5'></a> Never name a parameter `arguments`. This will take precedence over the `arguments` object that is given to every function scope.
+  - [7.5](#7.5) <a name='7.5'></a> 永远不要把参数命名为 arguments。这将取代函数作用域内的 arguments 对象。
 
     ```javascript
     // bad
@@ -507,9 +507,9 @@
     ```
 
   <a name="es6-rest"></a>
-  - [7.6](#7.6) <a name='7.6'></a> Never use `arguments`, opt to use rest syntax `...` instead.
+  - [7.6](#7.6) <a name='7.6'></a> 不要使用 `arguments`,可以选择 rest 语法 `...` 替代.
 
-  > Why? `...` is explicit about which arguments you want pulled. Plus rest arguments are a real Array and not Array-like like `arguments`.
+  > 为什么？使用 `...` 能明确你要传入的参数.另外 rest 参数是一个真正的数组，而 `arguments` 是一个类数组.
 
     ```javascript
     // bad
@@ -525,14 +525,15 @@
     ```
 
   <a name="es6-default-parameters"></a>
-  - [7.7](#7.7) <a name='7.7'></a> Use default parameter syntax rather than mutating function arguments.
+  - [7.7](#7.7) <a name='7.7'></a> 直接给函数的参数指定默认值，不要使用一个变化的函数参数。
 
     ```javascript
     // really bad
     function handleThings(opts) {
-      // No! We shouldn't mutate function arguments.
-      // Double bad: if opts is falsy it'll be set to an object which may
-      // be what you want but it can introduce subtle bugs.
+      // 不！我们不应该改变函数参数。
+      // 更加糟糕: 如果参数 opts 是 false 的话，它就会被设定为一个对象。
+      // 但这样的写法会造成一些 Bugs。
+      //（译者注：例如当 opts 被赋值为空字符串，opts 仍然会被下一行代码设定为一个空对象。）
       opts = opts || {};
       // ...
     }
@@ -551,9 +552,9 @@
     }
     ```
 
-  - [7.8](#7.8) <a name='7.8'></a> Avoid side effects with default parameters
+  - [7.8](#7.8) <a name='7.8'></a> 直接给函数参数赋值时需要避免副作用。
 
-  > Why? They are confusing to reason about.
+  > 为什么？因为这样的写法让人感到很困惑。
 
   ```javascript
   var b = 1;
@@ -570,13 +571,13 @@
 
 **[⬆ back to top](#table-of-contents)**
 
-## Arrow Functions
+## 箭头函数
 
-  - [8.1](#8.1) <a name='8.1'></a> When you must use function expressions (as when passing an anonymous function), use arrow function notation.
+  - [8.1](#8.1) <a name='8.1'></a> 当你必须使用函数表达式（或传递一个匿名函数）时，使用箭头函数符号。
 
-  > Why? It creates a version of the function that executes in the context of `this`, which is usually what you want, and is a more concise syntax.
+  > 为什么?因为箭头函数创造了一个 `this` 执行环境的新版本，通常情况下都能满足你的需求，而且这样的写法更为简洁。
 
-  > Why not? If you have a fairly complicated function, you might move that logic out into its own function declaration.
+  > 为什么不？如果你有一个相当复杂的函数，你或许可以把逻辑部分转移到一个函数声明上。
 
     ```javascript
     // bad
@@ -590,11 +591,11 @@
     });
     ```
 
-  - [8.2](#8.2) <a name='8.2'></a> If the function body fits on one line and there is only a single argument, feel free to omit the braces and parentheses, and use the implicit return. Otherwise, add the parentheses, braces, and use a `return` statement.
+  - [8.2](#8.2) <a name='8.2'></a> 如果一个函数适合用一行写出并且只有一个参数，那就把大括号、圆括号和 `return` 都省略掉。如果不是，那就不要省略。
 
-  > Why? Syntactic sugar. It reads well when multiple functions are chained together.
+  > 为什么？语法糖。在链式调用中可读性很高。
 
-  > Why not? If you plan on returning an object.
+  > 为什么不？当你打算回传一个对象的时候。
 
     ```javascript
     // good
@@ -609,11 +610,11 @@
 **[⬆ back to top](#table-of-contents)**
 
 
-## Constructors
+## 构造器
 
-  - [9.1](#9.1) <a name='9.1'></a> Always use `class`. Avoid manipulating `prototype` directly.
+  - [9.1](#9.1) <a name='9.1'></a> 总是使用 `class`。避免直接操作 `prototype` 。
 
-  > Why? `class` syntax is more concise and easier to reason about.
+  > 为什么? 因为 `class` 语法更为简洁更易读。
 
     ```javascript
     // bad
@@ -640,9 +641,9 @@
     }
     ```
 
-  - [9.2](#9.2) <a name='9.2'></a> Use `extends` for inheritance.
+  - [9.2](#9.2) <a name='9.2'></a> 使用 `extends` 继承。
 
-  > Why? It is a built-in way to inherit prototype functionality without breaking `instanceof`.
+  > 为什么？因为 `extends` 是一个内建的原型继承方法并且不会破坏 `instanceof`。
 
     ```javascript
     // bad
@@ -663,7 +664,7 @@
     }
     ```
 
-  - [9.3](#9.3) <a name='9.3'></a> Methods can return `this` to help with method chaining.
+  - [9.3](#9.3) <a name='9.3'></a> 方法可以返回 `this` 来帮助链式调用。
 
     ```javascript
     // bad
@@ -700,7 +701,7 @@
     ```
 
 
-  - [9.4](#9.4) <a name='9.4'></a> It's okay to write a custom toString() method, just make sure it works successfully and causes no side effects.
+  - [9.4](#9.4) <a name='9.4'></a> 可以写一个自定义的 toString() 方法，但要确保它能正常运行并且不会引起副作用。
 
     ```javascript
     class Jedi {
@@ -721,11 +722,11 @@
 **[⬆ back to top](#table-of-contents)**
 
 
-## Modules
+## 模块
 
-  - [10.1](#10.1) <a name='10.1'></a> Always use modules (`import`/`export`) over a non-standard module system. You can always transpile to your preferred module system.
+  - [10.1](#10.1) <a name='10.1'></a> 总是使用模组 (`import`/`export`) 而不是其他非标准模块系统。你可以编译为你喜欢的模块系统。
 
-  > Why? Modules are the future, let's start using the future now.
+  > 为什么？模块就是未来，让我们开始使用未来吧。
 
     ```javascript
     // bad
@@ -741,9 +742,9 @@
     export default es6;
     ```
 
-  - [10.2](#10.2) <a name='10.2'></a> Do not use wildcard imports.
+  - [10.2](#10.2) <a name='10.2'></a> 不要使用通配符 import。
 
-  > Why? This makes sure you have a single default export.
+  > 为什么？这样能确保你只有一个默认 export。
 
     ```javascript
     // bad
@@ -753,9 +754,9 @@
     import AirbnbStyleGuide from './AirbnbStyleGuide';
     ```
 
-  - [10.3](#10.3) <a name='10.3'></a>And do not export directly from an import.
+  - [10.3](#10.3) <a name='10.3'></a>不要在 import 的地方 export。
 
-  > Why? Although the one-liner is concise, having one clear way to import and one clear way to export makes things consistent.
+  > 为什么？虽然一行代码简洁明了，但让 import 和 export 各司其职让事情能保持一致。
 
     ```javascript
     // bad
@@ -772,9 +773,9 @@
 
 ## Iterators and Generators
 
-  - [11.1](#11.1) <a name='11.1'></a> Don't use iterators. Prefer JavaScript's higher-order functions like `map()` and `reduce()` instead of loops like `for-of`.
+  - [11.1](#11.1) <a name='11.1'></a> 不要使用 iterators。使用高阶函数例如 `map()` 和 `reduce()` 替代 `for-of`。
 
-  > Why? This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side-effects.
+  > 为什么？这加强了我们不变的规则。处理纯函数的回调值更易读，这比它带来的副作用更重要。
 
     ```javascript
     const numbers = [1, 2, 3, 4, 5];
@@ -797,16 +798,16 @@
     sum === 15;
     ```
 
-  - [11.2](#11.2) <a name='11.2'></a> Don't use generators for now.
+  - [11.2](#11.2) <a name='11.2'></a> 现在还不要使用 generators。
 
-  > Why? They don't transpile well to ES5.
+  > 为什么？因为它们现在还没法很好地编译到 ES5。
 
 **[⬆ back to top](#table-of-contents)**
 
 
-## Properties
+## 属性
 
-  - [12.1](#12.1) <a name='12.1'></a> Use dot notation when accessing properties.
+  - [12.1](#12.1) <a name='12.1'></a> 使用 `.` 来访问对象的属性。
 
     ```javascript
     const luke = {
@@ -821,7 +822,7 @@
     const isJedi = luke.jedi;
     ```
 
-  - [12.2](#12.2) <a name='12.2'></a> Use subscript notation `[]` when accessing properties with a variable.
+  - [12.2](#12.2) <a name='12.2'></a> 当通过变量访问属性时使用中括号 `[]`。
 
     ```javascript
     const luke = {
@@ -839,9 +840,9 @@
 **[⬆ back to top](#table-of-contents)**
 
 
-## Variables
+## 变量
 
-  - [13.1](#13.1) <a name='13.1'></a> Always use `const` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.
+  - [13.1](#13.1) <a name='13.1'></a> 一直使用 `const` 来声明变量，如果不这样做就会产生全局变量。我们需要避免全局（ global，也有「全球的」意思）命名空间的污染。[地球队长](http://www.wikiwand.com/en/Captain_Planet)已经警告过我们了。
 
     ```javascript
     // bad
@@ -851,9 +852,9 @@
     const superPower = new SuperPower();
     ```
 
-  - [13.2](#13.2) <a name='13.2'></a> Use one `const` declaration per variable.
+  - [13.2](#13.2) <a name='13.2'></a> 使用 `var` 声明每一个变量。
 
-    > Why? It's easier to add new variable declarations this way, and you never have to worry about swapping out a `;` for a `,` or introducing punctuation-only diffs.
+    > 为什么？增加新变量将变的更加容易，而且你永远不用再担心调换错 `;` 跟 `,`。
 
     ```javascript
     // bad
@@ -873,9 +874,9 @@
     const dragonball = 'z';
     ```
 
-  - [13.3](#13.3) <a name='13.3'></a> Group all your `const`s and then group all your `let`s.
+  - [13.3](#13.3) <a name='13.3'></a> 将所有的 `const` 和 `let` 分组
 
-  > Why? This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
+  > 为什么？当你需要把已赋值变量赋值给未赋值变量时非常有用。
 
     ```javascript
     // bad
@@ -898,10 +899,10 @@
     let length;
     ```
 
-  - [13.4](#13.4) <a name='13.4'></a> Assign variables where you need them, but place them in a reasonable place.
+  - [13.4](#13.4) <a name='13.4'></a> 在你需要的地方给变量赋值，但请把它们放在一个合理的位置。
 
-  > Why? `let` and `const` are block scoped and not function scoped.
-
+  > 为什么？`let` 和 `const` 是块级作用域而不是函数作用域。
+  
     ```javascript
     // good
     function() {
@@ -950,34 +951,32 @@
 
 ## Hoisting
 
-  - [14.1](#14.1) <a name='14.1'></a> `var` declarations get hoisted to the top of their scope, their assignment does not. `const` and `let` declarations are blessed with a new concept called [Temporal Dead Zones (TDZ)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone_and_errors_with_let). It's important to know why [typeof is no longer safe](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15).
+  - [14.1](#14.1) <a name='14.1'></a> `var` 声明会被提升至该作用域的顶部，但它们赋值不会提升。`let` 和 `const` 被赋予了一种称为「[暂时性死区（Temporal Dead Zones, TDZ）](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone_and_errors_with_let)」的概念。这对于了解为什么 [type of 不再安全](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15)相当重要。
 
     ```javascript
-    // we know this wouldn't work (assuming there
-    // is no notDefined global variable)
+    // 我们知道这样运行不了 
+    // （假设 notDefined 不是全局变量）
     function example() {
       console.log(notDefined); // => throws a ReferenceError
     }
 
-    // creating a variable declaration after you
-    // reference the variable will work due to
-    // variable hoisting. Note: the assignment
-    // value of `true` is not hoisted.
+    // 由于变量提升的原因，
+    // 在引用变量后再声明变量是可以运行的。
+    // 注：变量的赋值 `true` 不会被提升。
     function example() {
       console.log(declaredButNotAssigned); // => undefined
       var declaredButNotAssigned = true;
     }
 
-    // The interpreter is hoisting the variable
-    // declaration to the top of the scope,
-    // which means our example could be rewritten as:
+    // 编译器会把函数声明提升到作用域的顶层，
+    // 这意味着我们的例子可以改写成这样：
     function example() {
       let declaredButNotAssigned;
       console.log(declaredButNotAssigned); // => undefined
       declaredButNotAssigned = true;
     }
 
-    // using const and let
+    // 使用 const 和 let
     function example() {
       console.log(declaredButNotAssigned); // => throws a ReferenceError
       console.log(typeof declaredButNotAssigned); // => throws a ReferenceError
@@ -985,7 +984,7 @@
     }
     ```
 
-  - [14.2](#14.2) <a name='14.2'></a> Anonymous function expressions hoist their variable name, but not the function assignment.
+  - [14.2](#14.2) <a name='14.2'></a> 匿名函数表达式的变量名会被提升，但函数内容并不会。
 
     ```javascript
     function example() {
@@ -999,7 +998,7 @@
     }
     ```
 
-  - [14.3](#14.3) <a name='14.3'></a> Named function expressions hoist the variable name, not the function name or the function body.
+  - [14.3](#14.3) <a name='14.3'></a> 命名的函数表达式的变量名会被提升，但函数名和函数函数内容并不会。
 
     ```javascript
     function example() {
@@ -1027,7 +1026,7 @@
     }
     ```
 
-  - [14.4](#14.4) <a name='14.4'></a> Function declarations hoist their name and the function body.
+  - [14.4](#14.4) <a name='14.4'></a> 函数声明的名称和函数体都会被提升。
 
     ```javascript
     function example() {
@@ -1039,22 +1038,22 @@
     }
     ```
 
-  - For more information refer to [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) by [Ben Cherry](http://www.adequatelygood.com/).
+  - 想了解更多信息，参考 [Ben Cherry](http://www.adequatelygood.com/) 的 [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting)。
 
 **[⬆ back to top](#table-of-contents)**
 
 
-## Comparison Operators & Equality
+## 比较运算符 & 等号
 
-  - [15.1](#15.1) <a name='15.1'></a> Use `===` and `!==` over `==` and `!=`.
-  - [15.2](#15.2) <a name='15.2'></a> Conditional statements such as the `if` statement evaluate their expression using coercion with the `ToBoolean` abstract method and always follow these simple rules:
+  - [15.1](#15.1) <a name='15.1'></a> 优先使用 `===` 和 `!==` 而不是 `==` 和 `!=`.
+  - [15.2](#15.2) <a name='15.2'></a> 条件表达式例如 `if` 语句通过抽象方法 `ToBoolean` 强制计算它们的表达式并且总是遵守下面的规则：
 
-    + **Objects** evaluate to **true**
-    + **Undefined** evaluates to **false**
-    + **Null** evaluates to **false**
-    + **Booleans** evaluate to **the value of the boolean**
-    + **Numbers** evaluate to **false** if **+0, -0, or NaN**, otherwise **true**
-    + **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
+    + **对象** 被计算为 **true**
+    + **Undefined** 被计算为 **false**
+    + **Null** 被计算为 **false**
+    + **布尔值** 被计算为 **布尔的值**
+    + **数字** 如果是 **+0、-0、或 NaN** 被计算为 **false**, 否则为 **true**
+    + **字符串** 如果是空字符串 `''` 被计算为 **false**，否则为 **true**
 
     ```javascript
     if ([0]) {
@@ -1063,7 +1062,7 @@
     }
     ```
 
-  - [15.3](#15.3) <a name='15.3'></a> Use shortcuts.
+  - [15.3](#15.3) <a name='15.3'></a> 使用简写。
 
     ```javascript
     // bad
@@ -1087,14 +1086,14 @@
     }
     ```
 
-  - [15.4](#15.4) <a name='15.4'></a> For more information see [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
+  - [15.4](#15.4) <a name='15.4'></a> 想了解更多信息，参考 Angus Croll 的 [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108)。
 
 **[⬆ back to top](#table-of-contents)**
 
 
-## Blocks
+## 代码块
 
-  - [16.1](#16.1) <a name='16.1'></a> Use braces with all multi-line blocks.
+  - [16.1](#16.1) <a name='16.1'></a> 使用大括号包裹所有的多行代码块。
 
     ```javascript
     // bad
@@ -1118,8 +1117,7 @@
     }
     ```
 
-  - [16.2](#16.2) <a name='16.2'></a> If you're using multi-line blocks with `if` and `else`, put `else` on the same line as your
-    `if` block's closing brace.
+  - [16.2](#16.2) <a name='16.2'></a> 如果通过 `if` 和 `else` 使用多行代码块，把 `else` 放在 `if` 代码块关闭括号的同一行。
 
     ```javascript
     // bad
@@ -1144,9 +1142,9 @@
 **[⬆ back to top](#table-of-contents)**
 
 
-## Comments
+## 注释
 
-  - [17.1](#17.1) <a name='17.1'></a> Use `/** ... */` for multi-line comments. Include a description, specify types and values for all parameters and return values.
+  - [17.1](#17.1) <a name='17.1'></a> 使用 `/** ... */` 作为多行注释。包含描述、指定所有参数和返回值的类型和值。
 
     ```javascript
     // bad
@@ -1178,7 +1176,7 @@
     }
     ```
 
-  - [17.2](#17.2) <a name='17.2'></a> Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment.
+  - [17.2](#17.2) <a name='17.2'></a> 使用 `//` 作为单行注释。在评论对象上面另起一行使用单行注释。在注释前插入空行。
 
     ```javascript
     // bad
@@ -1208,9 +1206,9 @@
     }
     ```
 
-  - [17.3](#17.3) <a name='17.3'></a> Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME -- need to figure this out` or `TODO -- need to implement`.
+  - [17.3](#17.3) <a name='17.3'></a> 给注释增加 `FIXME` 或 `TODO` 的前缀可以帮助其他开发者快速了解这是一个需要复查的问题，或是给需要实现的功能提供一个解决方式。这将有别于常见的注释，因为它们是可操作的。使用 `FIXME -- need to figure this out` 或者 `TODO -- need to implement`。
 
-  - [17.4](#17.4) <a name='17.4'></a> Use `// FIXME:` to annotate problems.
+  - [17.4](#17.4) <a name='17.4'></a> 使用 `// FIXME`: 标注问题。
 
     ```javascript
     class Calculator {
@@ -1221,7 +1219,7 @@
     }
     ```
 
-  - [17.5](#17.5) <a name='17.5'></a> Use `// TODO:` to annotate solutions to problems.
+  - [17.5](#17.5) <a name='17.5'></a> 使用 `// TODO`: 标注问题的解决方式。
 
     ```javascript
     class Calculator {
@@ -1235,9 +1233,9 @@
 **[⬆ back to top](#table-of-contents)**
 
 
-## Whitespace
+## 空白
 
-  - [18.1](#18.1) <a name='18.1'></a> Use soft tabs set to 2 spaces.
+  - [18.1](#18.1) <a name='18.1'></a> 使用 2 个空格作为缩进。
 
     ```javascript
     // bad
@@ -1256,7 +1254,7 @@
     }
     ```
 
-  - [18.2](#18.2) <a name='18.2'></a> Place 1 space before the leading brace.
+  - [18.2](#18.2) <a name='18.2'></a> 在花括号前放一个空格。
 
     ```javascript
     // bad
@@ -1282,7 +1280,7 @@
     });
     ```
 
-  - [18.3](#18.3) <a name='18.3'></a> Place 1 space before the opening parenthesis in control statements (`if`, `while` etc.). Place no space before the argument list in function calls and declarations.
+  - [18.3](#18.3) <a name='18.3'></a> 在控制语句（`if`、`while` 等）的小括号前放一个空格。在函数调用及声明中，不在函数的参数列表前加空格。
 
     ```javascript
     // bad
@@ -1306,7 +1304,7 @@
     }
     ```
 
-  - [18.4](#18.4) <a name='18.4'></a> Set off operators with spaces.
+  - [18.4](#18.4) <a name='18.4'></a> 使用空格把运算符隔开。
 
     ```javascript
     // bad
@@ -1316,7 +1314,7 @@
     const x = y + 5;
     ```
 
-  - [18.5](#18.5) <a name='18.5'></a> End files with a single newline character.
+  - [18.5](#18.5) <a name='18.5'></a> 在文件末尾插入一个空行。
 
     ```javascript
     // bad
@@ -1340,8 +1338,7 @@
     })(this);↵
     ```
 
-  - [18.5](#18.5) <a name='18.5'></a> Use indentation when making long method chains. Use a leading dot, which
-    emphasizes that the line is a method call, not a new statement.
+  - [18.5](#18.5) <a name='18.5'></a> 在使用长方法链时进行缩进。使用前面的点 . 强调这是方法调用而不是新语句。
 
     ```javascript
     // bad
@@ -1380,7 +1377,7 @@
         .call(tron.led);
     ```
 
-  - [18.6](#18.6) <a name='18.6'></a> Leave a blank line after blocks and before the next statement.
+  - [18.6](#18.6) <a name='18.6'></a> 在块末和新语句前插入空行。
 
     ```javascript
     // bad
@@ -1420,9 +1417,9 @@
 
 **[⬆ back to top](#table-of-contents)**
 
-## Commas
+## 逗号
 
-  - [19.1](#19.1) <a name='19.1'></a> Leading commas: **Nope.**
+  - [19.1](#19.1) <a name='19.1'></a> 行首逗号：**不需要**。
 
     ```javascript
     // bad
@@ -1456,9 +1453,9 @@
     };
     ```
 
-  - [19.2](#19.2) <a name='19.2'></a> Additional trailing comma: **Yup.**
+  - [19.2](#19.2) <a name='19.2'></a> 增加结尾的逗号: **需要**。
 
-  > Why? This leads to cleaner git diffs. Also, transpilers like Babel will remove the additional trailing comma in the transpiled code which means you don't have to worry about the [trailing comma problem](es5/README.md#commas) in legacy browsers.
+  > 为什么? 这会让 git diffs 更干净。另外，像 babel 这样的转移器会移除结尾多余的逗号，也就是说你不必担心老旧浏览器的[尾逗号问题](es5/README.md#commas)。
 
     ```javascript
     // bad - git diff without trailing comma
@@ -1502,9 +1499,9 @@
 **[⬆ back to top](#table-of-contents)**
 
 
-## Semicolons
+## 分号
 
-  - [20.1](#20.1) <a name='20.1'></a> **Yup.**
+  - [20.1](#20.1) <a name='20.1'></a> **使用分号**
 
     ```javascript
     // bad
@@ -1519,7 +1516,7 @@
       return name;
     })();
 
-    // good (guards against the function becoming an argument when two files with IIFEs are concatenated)
+    // good (防止函数在两个 IIFE 合并时被当成一个参数)
     ;(() => {
       const name = 'Skywalker';
       return name;
@@ -1531,10 +1528,10 @@
 **[⬆ back to top](#table-of-contents)**
 
 
-## Type Casting & Coercion
+## 类型转换
 
-  - [21.1](#21.1) <a name='21.1'></a> Perform type coercion at the beginning of the statement.
-  - [21.2](#21.2) <a name='21.2'></a> Strings:
+  - [21.1](#21.1) <a name='21.1'></a> 在语句开始时执行类型转换。
+  - [21.2](#21.2) <a name='21.2'></a> 字符串：
 
     ```javascript
     //  => this.reviewScore = 9;
@@ -1546,7 +1543,7 @@
     const totalScore = String(this.reviewScore);
     ```
 
-  - [21.3](#21.3) <a name='21.3'></a> Use `parseInt` for Numbers and always with a radix for type casting.
+  - [21.3](#21.3) <a name='21.3'></a> 对数字使用 `parseInt` 转换，并带上类型转换的基数。
 
     ```javascript
     const inputValue = '4';
@@ -1570,19 +1567,18 @@
     const val = parseInt(inputValue, 10);
     ```
 
-  - [21.4](#21.4) <a name='21.4'></a> If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](http://jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you're doing.
+  - [21.4](#21.4) <a name='21.4'></a> 如果因为某些原因 parseInt 成为你所做的事的瓶颈而需要使用位操作解决[性能问题](http://jsperf.com/coercion-vs-casting/3)时，留个注释说清楚原因和你的目的。
 
     ```javascript
     // good
     /**
-     * parseInt was the reason my code was slow.
-     * Bitshifting the String to coerce it to a
-     * Number made it a lot faster.
+     * 使用 parseInt 导致我的程序变慢，
+     * 改成使用位操作转换数字快多了。
      */
     const val = inputValue >> 0;
     ```
 
-  - [21.5](#21.5) <a name='21.5'></a> **Note:** Be careful when using bitshift operations. Numbers are represented as [64-bit values](http://es5.github.io/#x4.3.19), but Bitshift operations always return a 32-bit integer ([source](http://es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. [Discussion](https://github.com/airbnb/javascript/issues/109). Largest signed 32-bit Int is 2,147,483,647:
+  - [21.5](#21.5) <a name='21.5'></a> **注:** 小心使用位操作运算符。数字会被当成 [64 位值](http://es5.github.io/#x4.3.19)，但是位操作运算符总是返回 32 位的整数（[参考](http://es5.github.io/#x11.7)）。位操作处理大于 32 位的整数值时还会导致意料之外的行为。[关于这个问题的讨论](https://github.com/airbnb/javascript/issues/109)。最大的 32 位整数是 2,147,483,647：
 
     ```javascript
     2147483647 >> 0 //=> 2147483647
@@ -1590,7 +1586,7 @@
     2147483649 >> 0 //=> -2147483647
     ```
 
-  - [21.6](#21.6) <a name='21.6'></a> Booleans:
+  - [21.6](#21.6) <a name='21.6'></a> 布尔:
 
     ```javascript
     const age = 0;
@@ -1608,9 +1604,9 @@
 **[⬆ back to top](#table-of-contents)**
 
 
-## Naming Conventions
+## 命名规则
 
-  - [22.1](#22.1) <a name='22.1'></a> Avoid single letter names. Be descriptive with your naming.
+  - [22.1](#22.1) <a name='22.1'></a> 避免单字母命名。命名应具备描述性。
 
     ```javascript
     // bad
@@ -1624,7 +1620,7 @@
     }
     ```
 
-  - [22.2](#22.2) <a name='22.2'></a> Use camelCase when naming objects, functions, and instances.
+  - [22.2](#22.2) <a name='22.2'></a> 使用驼峰式命名对象、函数和实例。
 
     ```javascript
     // bad
@@ -1637,7 +1633,7 @@
     function thisIsMyFunction() {}
     ```
 
-  - [22.3](#22.3) <a name='22.3'></a> Use PascalCase when naming constructors or classes.
+  - [22.3](#22.3) <a name='22.3'></a> 使用帕斯卡式命名构造函数或类。
 
     ```javascript
     // bad
@@ -1661,7 +1657,7 @@
     });
     ```
 
-  - [22.4](#22.4) <a name='22.4'></a> Use a leading underscore `_` when naming private properties.
+  - [22.4](#22.4) <a name='22.4'></a> 使用下划线 `_` 开头命名私有属性。
 
     ```javascript
     // bad
@@ -1672,7 +1668,7 @@
     this._firstName = 'Panda';
     ```
 
-  - [22.5](#22.5) <a name='22.5'></a> Don't save references to `this`. Use arrow functions or Function#bind.
+  - [22.5](#22.5) <a name='22.5'></a> 别保存 `this` 的引用。使用箭头函数或 Function#bind。
 
     ```javascript
     // bad
@@ -1699,7 +1695,8 @@
     }
     ```
 
-  - [22.6](#22.6) <a name='22.6'></a> If your file exports a single class, your filename should be exactly the name of the class.
+  - [22.6](#22.6) <a name='22.6'></a> 如果你的文件只输出一个类，那你的文件名必须和类名完全保持一致。
+
     ```javascript
     // file contents
     class CheckBox {
@@ -1718,7 +1715,7 @@
     import CheckBox from './CheckBox';
     ```
 
-  - [22.7](#22.7) <a name='22.7'></a> Use camelCase when you export-default a function. Your filename should be identical to your function's name.
+  - [22.7](#22.7) <a name='22.7'></a> 当你导出默认的函数时使用驼峰式命名。你的文件名必须和函数名完全保持一致。
 
     ```javascript
     function makeStyleGuide() {
@@ -1727,7 +1724,7 @@
     export default makeStyleGuide;
     ```
 
-  - [22.8](#22.8) <a name='22.8'></a> Use PascalCase when you export a singleton / function library / bare object.
+  - [22.8](#22.8) <a name='22.8'></a> 当你导出单例、函数库、空对象时使用帕斯卡式命名。
 
     ```javascript
     const AirbnbStyleGuide = {
@@ -1742,10 +1739,10 @@
 **[⬆ back to top](#table-of-contents)**
 
 
-## Accessors
+## 存取器
 
-  - [23.1](#23.1) <a name='23.1'></a> Accessor functions for properties are not required.
-  - [23.2](#23.2) <a name='23.2'></a> If you do make accessor functions use getVal() and setVal('hello').
+  - [23.1](#23.1) <a name='23.1'></a> 属性的存取函数不是必须的。
+  - [23.2](#23.2) <a name='23.2'></a> 如果你需要存取函数时使用 `getVal()` 和 `setVal('hello')`。
 
     ```javascript
     // bad
@@ -1761,7 +1758,7 @@
     dragon.setAge(25);
     ```
 
-  - [23.3](#23.3) <a name='23.3'></a> If the property is a `boolean`, use `isVal()` or `hasVal()`.
+  - [23.3](#23.3) <a name='23.3'></a> 如果属性是布尔值，使用 `isVal()` 或 `hasVal()`。
 
     ```javascript
     // bad
@@ -1775,7 +1772,7 @@
     }
     ```
 
-  - [23.4](#23.4) <a name='23.4'></a> It's okay to create get() and set() functions, but be consistent.
+  - [23.4](#23.4) <a name='23.4'></a> 创建 `get()` 和 `set()` 函数是可以的，但要保持一致。
 
     ```javascript
     class Jedi {
@@ -1797,9 +1794,9 @@
 **[⬆ back to top](#table-of-contents)**
 
 
-## Events
+## 事件
 
-  - [24.1](#24.1) <a name='24.1'></a> When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass a hash instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
+  - [24.1](#24.1) <a name='24.1'></a> 当给时间附加数据时（无论是 DOM 事件还是私有事件），传入一个哈希而不是原始值。这样可以让后面的贡献者增加更多数据到事件数据而无需找出并更新事件的每一个处理器。例如，不好的写法：
 
     ```javascript
     // bad
@@ -1812,7 +1809,7 @@
     });
     ```
 
-    prefer:
+    更好的写法：
 
     ```javascript
     // good
@@ -1830,7 +1827,7 @@
 
 ## jQuery
 
-  - [25.1](#25.1) <a name='25.1'></a> Prefix jQuery object variables with a `$`.
+  - [25.1](#25.1) <a name='25.1'></a> 使用 `$` 作为存储 jQuery 对象的变量名前缀。
 
     ```javascript
     // bad
@@ -1840,7 +1837,7 @@
     const $sidebar = $('.sidebar');
     ```
 
-  - [25.2](#25.2) <a name='25.2'></a> Cache jQuery lookups.
+  - [25.2](#25.2) <a name='25.2'></a> 缓存 jQuery 查询。
 
     ```javascript
     // bad
@@ -1867,8 +1864,8 @@
     }
     ```
 
-  - [25.3](#25.3) <a name='25.3'></a> For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
-  - [25.4](#25.4) <a name='25.4'></a> Use `find` with scoped jQuery object queries.
+  - [25.3](#25.3) <a name='25.3'></a> 对 DOM 查询使用层叠 `$('.sidebar ul')` 或 父元素 > 子元素 `$('.sidebar > ul')`。 [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
+  - [25.4](#25.4) <a name='25.4'></a> 对有作用域的 jQuery 对象查询使用 `find`。
 
     ```javascript
     // bad
@@ -1890,15 +1887,15 @@
 **[⬆ back to top](#table-of-contents)**
 
 
-## ECMAScript 5 Compatibility
+## ECMAScript 5 兼容性
 
-  - [26.1](#26.1) <a name='26.1'></a> Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](http://kangax.github.com/es5-compat-table/).
+  - [26.1](#26.1) <a name='26.1'></a> 参考 [Kangax](https://twitter.com/kangax/) 的 ES5 [兼容性](http://kangax.github.com/es5-compat-table/).
 
 **[⬆ back to top](#table-of-contents)**
 
-## ECMAScript 6 Styles
+## ECMAScript 6 风格
 
-  - [27.1](#27.1) <a name='27.1'></a> This is a collection of links to the various es6 features.
+  - [27.1](#27.1) <a name='27.1'></a> 以下是链接到 ES6 的各个特性的列表。
 
 1. [Arrow Functions](#arrow-functions)
 1. [Classes](#constructors)
@@ -1916,7 +1913,7 @@
 
 **[⬆ back to top](#table-of-contents)**
 
-## Testing
+## 测试
 
   - [28.1](#28.1) <a name='28.1'></a> **Yup.**
 
@@ -1929,7 +1926,7 @@
 **[⬆ back to top](#table-of-contents)**
 
 
-## Performance
+## 性能
 
   - [On Layout & Web Performance](http://kellegous.com/j/2013/01/26/layout-performance/)
   - [String vs Array Concat](http://jsperf.com/string-vs-array-concat/2)
@@ -1943,7 +1940,7 @@
 **[⬆ back to top](#table-of-contents)**
 
 
-## Resources
+## 资源
 
 **Learning ES6**
 

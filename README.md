@@ -9,7 +9,7 @@
 ## 目录
 
   1. [类型](#types)
-  1. [参考](#references)
+  1. [引用](#references)
   1. [对象](#objects)
   1. [数组](#arrays)
   1. [解构](#destructuring)
@@ -45,7 +45,8 @@
   1. [Contributors](#contributors)
   1. [License](#license)
 
-##  类型
+<a name="types"></a>
+##  类型 
 
   - [1.1](#1.1) <a name='1.1'></a> **基本类型**: 直接存取基本类型。
 
@@ -78,13 +79,14 @@
     console.log(foo[0], bar[0]); // => 9, 9
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回目录](#table-of-contents)**
 
-## References
+<a name="references"></a>
+## 引用
 
-  - [2.1](#2.1) <a name='2.1'></a> Use `const` for all of your references; avoid using `var`.
+  - [2.1](#2.1) <a name='2.1'></a> 对所有的引用使用 `const` ；避免使用 `var`。
 
-  > Why? This ensures that you can't reassign your references (mutation), which can lead to bugs and difficult to comprehend code.
+  > 为什么？这能确保你无法对引用重新赋值，也不会导致出现 bug 或难以理解。
 
     ```javascript
     // bad
@@ -96,9 +98,9 @@
     const b = 2;
     ```
 
-  - [2.2](#2.2) <a name='2.2'></a> If you must mutate references, use `let` instead of `var`.
+  - [2.2](#2.2) <a name='2.2'></a> 如果你一定需要可变动的引用，使用 `let` 代替 `var`。
 
-  > Why? `let` is block-scoped rather than function-scoped like `var`.
+  > 为什么？因为  `let` 是块级作用域，而 `var` 是函数作用域。
 
     ```javascript
     // bad
@@ -114,10 +116,10 @@
     }
     ```
 
-  - [2.3](#2.3) <a name='2.3'></a> Note that both `let` and `const` are block-scoped.
+  - [2.3](#2.3) <a name='2.3'></a> 注意 `let` 和 `const` 都是块级作用域。
 
     ```javascript
-    // const and let only exist in the blocks they are defined in.
+    // const 和 let 只存在于它们被定义的区块内。
     {
       let a = 1;
       const b = 1;
@@ -126,8 +128,9 @@
     console.log(b); // ReferenceError
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回目录](#table-of-contents)**
 
+<a name="objects"></a>
 ## 对象
 
   - [3.1](#3.1) <a name='3.1'></a> 使用字面值创建对象。
@@ -140,9 +143,8 @@
     const item = {};
     ```
 
-  - [3.2](#3.2) <a name='3.2'></a> 如果你的代码在浏览器环境下执行, 别使用 [保留字](http://es5.github.io/#x7.6.1) 作为键值。这样的话在 IE8 不会运行。 [更多信息](https://github.com/airbnb/javascript/issues/61). 但在 ES6 模块和服务器端中使用没有问题。
+  - [3.2](#3.2) <a name='3.2'></a> 如果你的代码在浏览器环境下执行，别使用 [保留字](http://es5.github.io/#x7.6.1) 作为键值。这样的话在 IE8 不会运行。 [更多信息](https://github.com/airbnb/javascript/issues/61)。 但在 ES6 模块和服务器端中使用没有问题。
 
-  
     ```javascript
     // bad
     const superman = {
@@ -177,12 +179,11 @@
     ```
 
   <a name="es6-computed-properties"></a>
-  - [3.4](#3.4) <a name='3.4'></a> 创建有动态属性名的对象时使用可被计算的属性名称。
+  - [3.4](#3.4) <a name='3.4'></a> 创建有动态属性名的对象时，使用可被计算的属性名称。
 
   > 为什么？因为这样可以让你在一个地方定义所有的对象属性。
 
     ```javascript
-
     function getKey(k) {
       return `a key named ${k}`;
     }
@@ -273,8 +274,9 @@
     };
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回目录](#table-of-contents)**
 
+<a name="arrays"></a>
 ## 数组
 
   - [4.1](#4.1) <a name='4.1'></a> 使用字面值创建数组。
@@ -301,7 +303,7 @@
     ```
 
   <a name="es6-array-spreads"></a>
-  - [4.3](#4.3) <a name='4.3'></a> 使用拓展运算符 `...` 复制数组.
+  - [4.3](#4.3) <a name='4.3'></a> 使用拓展运算符 `...` 复制数组。
 
     ```javascript
     // bad
@@ -316,15 +318,16 @@
     // good
     const itemsCopy = [...items];
     ```
-  - [4.4](#4.4) <a name='4.4'></a> .使用 Array#from 把一个类数组对象转换成数组。
+  - [4.4](#4.4) <a name='4.4'></a> 使用 Array#from 把一个类数组对象转换成数组。
 
     ```javascript
     const foo = document.querySelectorAll('.foo');
     const nodes = Array.from(foo);
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回目录](#table-of-contents)**
 
+<a name="destructuring"></a>
 ## 解构
 
   - [5.1](#5.1) <a name='5.1'></a> 使用解构存取和使用多属性对象。
@@ -389,8 +392,9 @@
     ```
 
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回目录](#table-of-contents)**
 
+<a name="strings"></a>
 ## Strings
 
   - [6.1](#6.1) <a name='6.1'></a> 字符串使用单引号 `''` 。
@@ -404,7 +408,7 @@
     ```
 
   - [6.2](#6.2) <a name='6.2'></a> 字符串超过 80 个字节应该使用字符串连接号换行。
-  - [6.3](#6.3) <a name='6.3'></a> Note: If overused, long strings with concatenation could impact performance. 注意：过度使用字串连接符号可能会对性能造成影响。[jsPerf](http://jsperf.com/ya-string-concat) & [讨论](https://github.com/airbnb/javascript/issues/40).
+  - [6.3](#6.3) <a name='6.3'></a> 注：过度使用字串连接符号可能会对性能造成影响。[jsPerf](http://jsperf.com/ya-string-concat) 和 [讨论](https://github.com/airbnb/javascript/issues/40).
 
     ```javascript
     // bad
@@ -444,9 +448,9 @@
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回目录](#table-of-contents)**
 
-
+<a name="functions"></a>
 ## 函数
 
   - [7.1](#7.1) <a name='7.1'></a> 使用函数声明代替函数表达式。
@@ -473,7 +477,7 @@
     ```
 
   - [7.3](#7.3) <a name='7.3'></a> 永远不要在一个非函数代码块（if、while 等）中声明一个函数，把那个函数赋给一个变量。浏览器允许你这么做，但它们的解析表现不一致。
-  - [7.4](#7.4) <a name='7.4'></a> **注意:** ECMA-262 把 `block` 定义为一组语句。函数声明不是语句。[阅读 ECMA-262 关于这个问题的说明](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
+  - [7.4](#7.4) <a name='7.4'></a> **注意:** ECMA-262 把 `block` 定义为一组语句。函数声明不是语句。[阅读 ECMA-262 关于这个问题的说明](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97)。
 
     ```javascript
     // bad
@@ -492,7 +496,7 @@
     }
     ```
 
-  - [7.5](#7.5) <a name='7.5'></a> 永远不要把参数命名为 arguments。这将取代函数作用域内的 arguments 对象。
+  - [7.5](#7.5) <a name='7.5'></a> 永远不要把参数命名为 `arguments`。这将取代原来函数作用域内的 `arguments` 对象。
 
     ```javascript
     // bad
@@ -569,8 +573,9 @@
   ```
 
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回目录](#table-of-contents)**
 
+<a name="arrow-functions"></a>
 ## 箭头函数
 
   - [8.1](#8.1) <a name='8.1'></a> 当你必须使用函数表达式（或传递一个匿名函数）时，使用箭头函数符号。
@@ -607,9 +612,9 @@
     }, 0);
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回目录](#table-of-contents)**
 
-
+<a name="constructors"></a>
 ## 构造器
 
   - [9.1](#9.1) <a name='9.1'></a> 总是使用 `class`。避免直接操作 `prototype` 。
@@ -701,7 +706,7 @@
     ```
 
 
-  - [9.4](#9.4) <a name='9.4'></a> 可以写一个自定义的 toString() 方法，但要确保它能正常运行并且不会引起副作用。
+  - [9.4](#9.4) <a name='9.4'></a> 可以写一个自定义的 `toString()` 方法，但要确保它能正常运行并且不会引起副作用。
 
     ```javascript
     class Jedi {
@@ -719,9 +724,9 @@
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回目录](#table-of-contents)**
 
-
+<a name="modules"></a>
 ## 模块
 
   - [10.1](#10.1) <a name='10.1'></a> 总是使用模组 (`import`/`export`) 而不是其他非标准模块系统。你可以编译为你喜欢的模块系统。
@@ -769,8 +774,9 @@
     export default es6;
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回目录](#table-of-contents)**
 
+<a name="iterators-and-generators"></a>
 ## Iterators and Generators
 
   - [11.1](#11.1) <a name='11.1'></a> 不要使用 iterators。使用高阶函数例如 `map()` 和 `reduce()` 替代 `for-of`。
@@ -802,9 +808,9 @@
 
   > 为什么？因为它们现在还没法很好地编译到 ES5。
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回目录](#table-of-contents)**
 
-
+<a name="properties"></a>
 ## 属性
 
   - [12.1](#12.1) <a name='12.1'></a> 使用 `.` 来访问对象的属性。
@@ -837,9 +843,9 @@
     const isJedi = getProp('jedi');
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回目录](#table-of-contents)**
 
-
+<a name="variables"></a>
 ## 变量
 
   - [13.1](#13.1) <a name='13.1'></a> 一直使用 `const` 来声明变量，如果不这样做就会产生全局变量。我们需要避免全局（ global，也有「全球的」意思）命名空间的污染。[地球队长](http://www.wikiwand.com/en/Captain_Planet)已经警告过我们了。
@@ -946,9 +952,9 @@
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回目录](#table-of-contents)**
 
-
+<a name="hoisting"></a>
 ## Hoisting
 
   - [14.1](#14.1) <a name='14.1'></a> `var` 声明会被提升至该作用域的顶部，但它们赋值不会提升。`let` 和 `const` 被赋予了一种称为「[暂时性死区（Temporal Dead Zones, TDZ）](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone_and_errors_with_let)」的概念。这对于了解为什么 [type of 不再安全](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15)相当重要。
@@ -1040,9 +1046,9 @@
 
   - 想了解更多信息，参考 [Ben Cherry](http://www.adequatelygood.com/) 的 [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting)。
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回目录](#table-of-contents)**
 
-
+<a name="comparison-operators--equality"></a>
 ## 比较运算符 & 等号
 
   - [15.1](#15.1) <a name='15.1'></a> 优先使用 `===` 和 `!==` 而不是 `==` 和 `!=`.
@@ -1088,9 +1094,9 @@
 
   - [15.4](#15.4) <a name='15.4'></a> 想了解更多信息，参考 Angus Croll 的 [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108)。
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回目录](#table-of-contents)**
 
-
+<a name="blocks"></a>
 ## 代码块
 
   - [16.1](#16.1) <a name='16.1'></a> 使用大括号包裹所有的多行代码块。
@@ -1139,9 +1145,9 @@
     ```
 
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回目录](#table-of-contents)**
 
-
+<a name="comments"></a>
 ## 注释
 
   - [17.1](#17.1) <a name='17.1'></a> 使用 `/** ... */` 作为多行注释。包含描述、指定所有参数和返回值的类型和值。
@@ -1230,9 +1236,9 @@
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回目录](#table-of-contents)**
 
-
+<a name="whitespace"></a>
 ## 空白
 
   - [18.1](#18.1) <a name='18.1'></a> 使用 2 个空格作为缩进。
@@ -1415,8 +1421,9 @@
     ```
 
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回目录](#table-of-contents)**
 
+<a name="commas"></a>
 ## 逗号
 
   - [19.1](#19.1) <a name='19.1'></a> 行首逗号：**不需要**。
@@ -1496,9 +1503,9 @@
     ];
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回目录](#table-of-contents)**
 
-
+<a name="semicolons"></a>
 ## 分号
 
   - [20.1](#20.1) <a name='20.1'></a> **使用分号**
@@ -1525,9 +1532,9 @@
 
     [Read more](http://stackoverflow.com/a/7365214/1712802).
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回目录](#table-of-contents)**
 
-
+<a name="type-casting--coercion"></a>
 ## 类型转换
 
   - [21.1](#21.1) <a name='21.1'></a> 在语句开始时执行类型转换。
@@ -1601,9 +1608,9 @@
     const hasAge = !!age;
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回目录](#table-of-contents)**
 
-
+<a name="naming-conventions"></a>
 ## 命名规则
 
   - [22.1](#22.1) <a name='22.1'></a> 避免单字母命名。命名应具备描述性。
@@ -1736,9 +1743,9 @@
     ```
 
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回目录](#table-of-contents)**
 
-
+<a name="accessors"></a>
 ## 存取器
 
   - [23.1](#23.1) <a name='23.1'></a> 属性的存取函数不是必须的。
@@ -1791,9 +1798,9 @@
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回目录](#table-of-contents)**
 
-
+<a name="events"></a>
 ## 事件
 
   - [24.1](#24.1) <a name='24.1'></a> 当给时间附加数据时（无论是 DOM 事件还是私有事件），传入一个哈希而不是原始值。这样可以让后面的贡献者增加更多数据到事件数据而无需找出并更新事件的每一个处理器。例如，不好的写法：
@@ -1822,7 +1829,7 @@
     });
     ```
 
-  **[⬆ back to top](#table-of-contents)**
+  **[⬆ 返回目录](#table-of-contents)**
 
 
 ## jQuery
@@ -1884,16 +1891,17 @@
     $sidebar.find('ul').hide();
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回目录](#table-of-contents)**
 
-
+<a name="ecmascript-5-compatibility"></a>
 ## ECMAScript 5 兼容性
 
   - [26.1](#26.1) <a name='26.1'></a> 参考 [Kangax](https://twitter.com/kangax/) 的 ES5 [兼容性](http://kangax.github.com/es5-compat-table/).
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回目录](#table-of-contents)**
 
-## ECMAScript 6 风格
+<a name="ecmascript-6-styles"></a>
+## ECMAScript 6 规范
 
   - [27.1](#27.1) <a name='27.1'></a> 以下是链接到 ES6 的各个特性的列表。
 
@@ -1911,8 +1919,9 @@
 1. [Iterators and Generators](#iterators-and-generators)
 1. [Modules](#modules)
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回目录](#table-of-contents)**
 
+<a name="testing"></a>
 ## 测试
 
   - [28.1](#28.1) <a name='28.1'></a> **Yup.**
@@ -1923,9 +1932,9 @@
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回目录](#table-of-contents)**
 
-
+<a name="performance"></a>
 ## 性能
 
   - [On Layout & Web Performance](http://kellegous.com/j/2013/01/26/layout-performance/)
@@ -1937,9 +1946,9 @@
   - [Long String Concatenation](http://jsperf.com/ya-string-concat)
   - Loading...
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回目录](#table-of-contents)**
 
-
+<a name="resources"></a>
 ## 资源
 
 **Learning ES6**
@@ -2018,9 +2027,10 @@
   - [JavaScript Jabber](http://devchat.tv/js-jabber/)
 
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回目录](#table-of-contents)**
 
-## In the Wild
+<a name="in-the-wild"></a>
+## 使用人群
 
   This is a list of organizations that are using this style guide. Send us a pull request or open an issue and we'll add you to the list.
 
@@ -2074,9 +2084,10 @@
   - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
   - **ZocDoc**: [ZocDoc/javascript](https://github.com/ZocDoc/javascript)
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回目录](#table-of-contents)**
 
-## Translation
+<a name="translation"></a>
+## 翻译
 
   This style guide is also available in other languages:
 
@@ -2095,11 +2106,13 @@
   - ![es](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Spain.png) **Spanish**: [paolocarrasco/javascript-style-guide](https://github.com/paolocarrasco/javascript-style-guide)
   - ![th](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Thailand.png) **Thai**: [lvarayut/javascript-style-guide](https://github.com/lvarayut/javascript-style-guide)
 
-## The JavaScript Style Guide Guide
+<a name="the-javascript-style-guide-guide"></a>
+## JavaScript 编码规范说明
 
   - [Reference](https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
 
-## Chat With Us About JavaScript
+<a name="chat-with-us-about-javascript"></a>
+## 一起来讨论 JavaScript
 
   - Find us on [gitter](https://gitter.im/airbnb/javascript).
 
@@ -2133,6 +2146,6 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回目录](#table-of-contents)**
 
 # };

@@ -2,10 +2,11 @@
 
 # Airbnb JavaScript Style Guide() {
 
-*A mostly reasonable approach to JavaScript*
+*用更合理的方式写 JavaScript *
 
-[For the ES5-only guide click here](es5/).
+ES5 的编码规范请查看[版本一](https://github.com/sivan/javascript-style-guide/blob/master/es5/README.md)，[版本二](https://github.com/adamlu/javascript-style-guide)。
 
+<a name="table-of-contents"></a>
 ## 目录
 
   1. [类型](#types)
@@ -332,7 +333,7 @@
 
   - [5.1](#5.1) <a name='5.1'></a> 使用解构存取和使用多属性对象。
 
-  > 为什么？因为解构能减少临时引用对象。
+  > 为什么？因为解构能减少临时引用属性。
 
     ```javascript
     // bad
@@ -476,7 +477,7 @@
     })();
     ```
 
-  - [7.3](#7.3) <a name='7.3'></a> 永远不要在一个非函数代码块（if、while 等）中声明一个函数，把那个函数赋给一个变量。浏览器允许你这么做，但它们的解析表现不一致。
+  - [7.3](#7.3) <a name='7.3'></a> 永远不要在一个非函数代码块（`if`、`while` 等）中声明一个函数，把那个函数赋给一个变量。浏览器允许你这么做，但它们的解析表现不一致。
   - [7.4](#7.4) <a name='7.4'></a> **注意:** ECMA-262 把 `block` 定义为一组语句。函数声明不是语句。[阅读 ECMA-262 关于这个问题的说明](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97)。
 
     ```javascript
@@ -511,9 +512,9 @@
     ```
 
   <a name="es6-rest"></a>
-  - [7.6](#7.6) <a name='7.6'></a> 不要使用 `arguments`,可以选择 rest 语法 `...` 替代.
+  - [7.6](#7.6) <a name='7.6'></a> 不要使用 `arguments`。可以选择 rest 语法 `...` 替代。
 
-  > 为什么？使用 `...` 能明确你要传入的参数.另外 rest 参数是一个真正的数组，而 `arguments` 是一个类数组.
+  > 为什么？使用 `...` 能明确你要传入的参数。另外 rest 参数是一个真正的数组，而 `arguments` 是一个类数组。
 
     ```javascript
     // bad
@@ -537,7 +538,7 @@
       // 不！我们不应该改变函数参数。
       // 更加糟糕: 如果参数 opts 是 false 的话，它就会被设定为一个对象。
       // 但这样的写法会造成一些 Bugs。
-      //（译者注：例如当 opts 被赋值为空字符串，opts 仍然会被下一行代码设定为一个空对象。）
+      //（译注：例如当 opts 被赋值为空字符串，opts 仍然会被下一行代码设定为一个空对象。）
       opts = opts || {};
       // ...
     }
@@ -580,7 +581,7 @@
 
   - [8.1](#8.1) <a name='8.1'></a> 当你必须使用函数表达式（或传递一个匿名函数）时，使用箭头函数符号。
 
-  > 为什么?因为箭头函数创造了一个 `this` 执行环境的新版本，通常情况下都能满足你的需求，而且这样的写法更为简洁。
+  > 为什么?因为箭头函数创造了新的一个 `this` 执行环境（译注：参考 [Arrow functions - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) 和 [ES6 arrow functions, syntax and lexical scoping](http://toddmotto.com/es6-arrow-functions-syntaxes-and-lexical-scoping/)），通常情况下都能满足你的需求，而且这样的写法更为简洁。
 
   > 为什么不？如果你有一个相当复杂的函数，你或许可以把逻辑部分转移到一个函数声明上。
 
@@ -596,7 +597,7 @@
     });
     ```
 
-  - [8.2](#8.2) <a name='8.2'></a> 如果一个函数适合用一行写出并且只有一个参数，那就把大括号、圆括号和 `return` 都省略掉。如果不是，那就不要省略。
+  - [8.2](#8.2) <a name='8.2'></a> 如果一个函数适合用一行写出并且只有一个参数，那就把花括号、圆括号和 `return` 都省略掉。如果不是，那就不要省略。
 
   > 为什么？语法糖。在链式调用中可读性很高。
 
@@ -731,7 +732,7 @@
 
   - [10.1](#10.1) <a name='10.1'></a> 总是使用模组 (`import`/`export`) 而不是其他非标准模块系统。你可以编译为你喜欢的模块系统。
 
-  > 为什么？模块就是未来，让我们开始使用未来吧。
+  > 为什么？模块就是未来，让我们开始迈向未来吧。
 
     ```javascript
     // bad
@@ -759,7 +760,7 @@
     import AirbnbStyleGuide from './AirbnbStyleGuide';
     ```
 
-  - [10.3](#10.3) <a name='10.3'></a>不要在 import 的地方 export。
+  - [10.3](#10.3) <a name='10.3'></a>不要从 import 中直接 export。
 
   > 为什么？虽然一行代码简洁明了，但让 import 和 export 各司其职让事情能保持一致。
 
@@ -1344,7 +1345,7 @@
     })(this);↵
     ```
 
-  - [18.5](#18.5) <a name='18.5'></a> 在使用长方法链时进行缩进。使用前面的点 . 强调这是方法调用而不是新语句。
+  - [18.5](#18.5) <a name='18.5'></a> 在使用长方法链时进行缩进。使用前面的点 `.` 强调这是方法调用而不是新语句。
 
     ```javascript
     // bad
@@ -1462,7 +1463,7 @@
 
   - [19.2](#19.2) <a name='19.2'></a> 增加结尾的逗号: **需要**。
 
-  > 为什么? 这会让 git diffs 更干净。另外，像 babel 这样的转移器会移除结尾多余的逗号，也就是说你不必担心老旧浏览器的[尾逗号问题](es5/README.md#commas)。
+  > 为什么? 这会让 git diffs 更干净。另外，像 babel 这样的转译器会移除结尾多余的逗号，也就是说你不必担心老旧浏览器的[尾逗号问题](es5/README.md#commas)。
 
     ```javascript
     // bad - git diff without trailing comma
@@ -2095,7 +2096,7 @@
   - ![bg](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Bulgaria.png) **Bulgarian**: [borislavvv/javascript](https://github.com/borislavvv/javascript)
   - ![ca](https://raw.githubusercontent.com/fpmweb/javascript-style-guide/master/img/catala.png) **Catalan**: [fpmweb/javascript-style-guide](https://github.com/fpmweb/javascript-style-guide)
   - ![tw](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Taiwan.png) **Chinese(Traditional)**: [jigsawye/javascript](https://github.com/jigsawye/javascript)
-  - ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Chinese(Simplified)**: [sivan/javascript-style-guide](https://github.com/sivan/javascript-style-guide)
+  - ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Chinese(Simplified)**: [yuche/javascript](https://github.com/yuche/javascript)
   - ![fr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/France.png) **French**: [nmussy/javascript-style-guide](https://github.com/nmussy/javascript-style-guide)
   - ![de](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Germany.png) **German**: [timofurrer/javascript-style-guide](https://github.com/timofurrer/javascript-style-guide)
   - ![it](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Italy.png) **Italian**: [sinkswim/javascript-style-guide](https://github.com/sinkswim/javascript-style-guide)

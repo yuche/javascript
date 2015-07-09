@@ -6,6 +6,8 @@
 
 ES5 的编码规范请查看[版本一](https://github.com/sivan/javascript-style-guide/blob/master/es5/README.md)，[版本二](https://github.com/adamlu/javascript-style-guide)。
 
+翻译自 [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript) 。
+
 <a name="table-of-contents"></a>
 ## 目录
 
@@ -849,7 +851,7 @@ ES5 的编码规范请查看[版本一](https://github.com/sivan/javascript-styl
 <a name="variables"></a>
 ## 变量
 
-  - [13.1](#13.1) <a name='13.1'></a> 一直使用 `const` 来声明变量，如果不这样做就会产生全局变量。我们需要避免全局（ global，也有「全球的」意思）命名空间的污染。[地球队长](http://www.wikiwand.com/en/Captain_Planet)已经警告过我们了。
+  - [13.1](#13.1) <a name='13.1'></a> 一直使用 `const` 来声明变量，如果不这样做就会产生全局变量。我们需要避免全局命名空间的污染。[地球队长](http://www.wikiwand.com/en/Captain_Planet)已经警告过我们了。（译注：全局，global 亦有全球的意思。地球队长的责任是保卫地球环境，所以他警告我们不要造成「全球」污染。）
 
     ```javascript
     // bad

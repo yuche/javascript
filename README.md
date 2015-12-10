@@ -861,7 +861,7 @@ ES5 的编码规范请查看[版本一](https://github.com/sivan/javascript-styl
     const superPower = new SuperPower();
     ```
 
-  - [13.2](#13.2) <a name='13.2'></a> 使用 `var` 声明每一个变量。
+  - [13.2](#13.2) <a name='13.2'></a> 使用 `const` 声明每一个变量。
 
     > 为什么？增加新变量将变的更加容易，而且你永远不用再担心调换错 `;` 跟 `,`。
 

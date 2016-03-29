@@ -87,7 +87,7 @@ ES5 的编码规范请查看[版本一](https://github.com/sivan/javascript-styl
 <a name="references"></a>
 ## 引用
 
-  - [2.1](#2.1) <a name='2.1'></a> 对所有的引用使用 `const` ；避免使用 `var`。
+  - [2.1](#2.1) <a name='2.1'></a> 对所有的引用使用 `const` ；不要使用 `var`。
 
   > 为什么？这能确保你无法对引用重新赋值，也不会导致出现 bug 或难以理解。
 
@@ -809,7 +809,7 @@ ES5 的编码规范请查看[版本一](https://github.com/sivan/javascript-styl
 
   - [11.2](#11.2) <a name='11.2'></a> 现在还不要使用 generators。
 
-  > 为什么？因为它们现在还没法很好地编译到 ES5。
+  > 为什么？因为它们现在还没法很好地编译到 ES5。 (译者注：目前(2016/03) Chrome 和 Node.js 的稳定版本都已支持 generators)
 
 **[⬆ 返回目录](#table-of-contents)**
 

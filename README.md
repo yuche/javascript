@@ -1007,7 +1007,7 @@ ES5 的编码规范请查看[版本一](https://github.com/sivan/javascript-styl
     }
     ```
 
-  - [14.3](#14.3) <a name='14.3'></a> 命名的函数表达式的变量名会被提升，但函数名和函数函数内容并不会。
+  - [14.3](#14.3) <a name='14.3'></a> 命名的函数表达式的变量名会被提升，但函数名和函数内容并不会。
 
     ```javascript
     function example() {

@@ -49,7 +49,7 @@ ES5 的编码规范请查看[版本一](https://github.com/sivan/javascript-styl
   1. [License](#license)
 
 <a name="types"></a>
-##  类型 
+## 类型
 
   - [1.1](#1.1) <a name='1.1'></a> **基本类型**: 直接存取基本类型。
 
@@ -67,7 +67,8 @@ ES5 的编码规范请查看[版本一](https://github.com/sivan/javascript-styl
 
     console.log(foo, bar); // => 1, 9
     ```
-  - [1.2](#1.2) <a name='1.2'></a> **复杂类型**: 通过引用的方式存取复杂类型。
+
+  - [1.2](#1.2) <a name='1.2'></a> **复杂类型**: 通过引用的方式存取复杂类型。
 
     + `对象`
     + `数组`
@@ -911,7 +912,7 @@ ES5 的编码规范请查看[版本一](https://github.com/sivan/javascript-styl
   - [13.4](#13.4) <a name='13.4'></a> 在你需要的地方给变量赋值，但请把它们放在一个合理的位置。
 
   > 为什么？`let` 和 `const` 是块级作用域而不是函数作用域。
-  
+
     ```javascript
     // good
     function() {
@@ -963,7 +964,7 @@ ES5 的编码规范请查看[版本一](https://github.com/sivan/javascript-styl
   - [14.1](#14.1) <a name='14.1'></a> `var` 声明会被提升至该作用域的顶部，但它们赋值不会提升。`let` 和 `const` 被赋予了一种称为「[暂时性死区（Temporal Dead Zones, TDZ）](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone_and_errors_with_let)」的概念。这对于了解为什么 [type of 不再安全](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15)相当重要。
 
     ```javascript
-    // 我们知道这样运行不了 
+    // 我们知道这样运行不了
     // （假设 notDefined 不是全局变量）
     function example() {
       console.log(notDefined); // => throws a ReferenceError

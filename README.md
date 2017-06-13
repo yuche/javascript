@@ -1668,15 +1668,16 @@ ES5 的编码规范请查看[版本一](https://github.com/sivan/javascript-styl
     });
     ```
 
-  - [22.4](#22.4) <a name='22.4'></a> 使用下划线 `_` 开头命名私有属性。
+  - [22.4](#22.4) <a name='22.4'></a> 不要使用下划线 `_` 结尾或开头来命名属性和方法。
 
     ```javascript
     // bad
     this.__firstName__ = 'Panda';
     this.firstName_ = 'Panda';
+    this._firstName = 'Panda';
 
     // good
-    this._firstName = 'Panda';
+    this.firstName = 'Panda';
     ```
 
   - [22.5](#22.5) <a name='22.5'></a> 别保存 `this` 的引用。使用箭头函数或 Function#bind。

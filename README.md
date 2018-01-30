@@ -92,7 +92,7 @@ ES5 的编码规范请查看[版本一](https://github.com/sivan/javascript-styl
 
   - [2.1](#2.1) <a name='2.1'></a> 对所有的引用使用 `const` ；不要使用 `var`。
 
-  > 为什么？这能确保你无法对引用重新赋值，也不会导致出现 bug 或难以理解。
+    > 为什么？这能确保你无法对引用重新赋值，也不会导致出现 bug 或难以理解。
 
     ```javascript
     // bad
@@ -106,7 +106,7 @@ ES5 的编码规范请查看[版本一](https://github.com/sivan/javascript-styl
 
   - [2.2](#2.2) <a name='2.2'></a> 如果你一定需要可变动的引用，使用 `let` 代替 `var`。
 
-  > 为什么？因为  `let` 是块级作用域，而 `var` 是函数作用域。
+    > 为什么？因为  `let` 是块级作用域，而 `var` 是函数作用域。
 
     ```javascript
     // bad
@@ -187,7 +187,7 @@ ES5 的编码规范请查看[版本一](https://github.com/sivan/javascript-styl
   <a name="es6-computed-properties"></a>
   - [3.4](#3.4) <a name='3.4'></a> 创建有动态属性名的对象时，使用可被计算的属性名称。
 
-  > 为什么？因为这样可以让你在一个地方定义所有的对象属性。
+    > 为什么？因为这样可以让你在一个地方定义所有的对象属性。
 
     ```javascript
     function getKey(k) {
@@ -235,7 +235,7 @@ ES5 的编码规范请查看[版本一](https://github.com/sivan/javascript-styl
   <a name="es6-object-concise"></a>
   - [3.6](#3.6) <a name='3.6'></a> 使用对象属性值的简写。
 
-  > 为什么？因为这样更短更有描述性。
+    > 为什么？因为这样更短更有描述性。
 
     ```javascript
     const lukeSkywalker = 'Luke Skywalker';
@@ -253,7 +253,7 @@ ES5 的编码规范请查看[版本一](https://github.com/sivan/javascript-styl
 
   - [3.7](#3.7) <a name='3.7'></a> 在对象属性声明前把简写的属性分组。
 
-  > 为什么？因为这样能清楚地看出哪些属性使用了简写。
+    > 为什么？因为这样能清楚地看出哪些属性使用了简写。
 
     ```javascript
     const anakinSkywalker = 'Anakin Skywalker';
@@ -338,7 +338,7 @@ ES5 的编码规范请查看[版本一](https://github.com/sivan/javascript-styl
 
   - [5.1](#5.1) <a name='5.1'></a> 使用解构存取和使用多属性对象。
 
-  > 为什么？因为解构能减少临时引用属性。
+    > 为什么？因为解构能减少临时引用属性。
 
     ```javascript
     // bad
@@ -375,7 +375,7 @@ ES5 的编码规范请查看[版本一](https://github.com/sivan/javascript-styl
     ```
 
   - [5.3](#5.3) <a name='5.3'></a> 需要回传多个值时，使用对象解构，而不是数组解构。
-  > 为什么？增加属性或者改变排序不会改变调用时的位置。
+    > 为什么？增加属性或者改变排序不会改变调用时的位置。
 
     ```javascript
     // bad
@@ -435,7 +435,7 @@ ES5 的编码规范请查看[版本一](https://github.com/sivan/javascript-styl
   <a name="es6-template-literals"></a>
   - [6.4](#6.4) <a name='6.4'></a> 程序化生成字符串时，使用模板字符串代替字符串连接。
 
-  > 为什么？模板字符串更为简洁，更具可读性。
+    > 为什么？模板字符串更为简洁，更具可读性。
 
     ```javascript
     // bad
@@ -461,7 +461,7 @@ ES5 的编码规范请查看[版本一](https://github.com/sivan/javascript-styl
 
   - [7.1](#7.1) <a name='7.1'></a> 使用函数声明代替函数表达式。
 
-  > 为什么？因为函数声明是可命名的，所以他们在调用栈中更容易被识别。此外，函数声明会把整个函数提升（hoisted），而函数表达式只会把函数的引用变量名提升。这条规则使得[箭头函数](#arrow-functions)可以取代函数表达式。
+    > 为什么？因为函数声明是可命名的，所以他们在调用栈中更容易被识别。此外，函数声明会把整个函数提升（hoisted），而函数表达式只会把函数的引用变量名提升。这条规则使得[箭头函数](#arrow-functions)可以取代函数表达式。
 
     ```javascript
     // bad
@@ -519,7 +519,7 @@ ES5 的编码规范请查看[版本一](https://github.com/sivan/javascript-styl
   <a name="es6-rest"></a>
   - [7.6](#7.6) <a name='7.6'></a> 不要使用 `arguments`。可以选择 rest 语法 `...` 替代。
 
-  > 为什么？使用 `...` 能明确你要传入的参数。另外 rest 参数是一个真正的数组，而 `arguments` 是一个类数组。
+    > 为什么？使用 `...` 能明确你要传入的参数。另外 rest 参数是一个真正的数组，而 `arguments` 是一个类数组。
 
     ```javascript
     // bad
@@ -586,27 +586,29 @@ ES5 的编码规范请查看[版本一](https://github.com/sivan/javascript-styl
 
   - [8.1](#8.1) <a name='8.1'></a> 当你必须使用函数表达式（或传递一个匿名函数）时，使用箭头函数符号。
 
-  > 为什么?因为箭头函数创造了新的一个 `this` 执行环境（译注：参考 [Arrow functions - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) 和 [ES6 arrow functions, syntax and lexical scoping](http://toddmotto.com/es6-arrow-functions-syntaxes-and-lexical-scoping/)），通常情况下都能满足你的需求，而且这样的写法更为简洁。
+    > 为什么？因为箭头函数创造了新的一个 `this` 执行环境（译注：参考 [Arrow functions - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) 和 [ES6 arrow functions, syntax and lexical scoping](http://toddmotto.com/es6-arrow-functions-syntaxes-and-lexical-scoping/)），通常情况下都能满足你的需求，而且这样的写法更为简洁。
 
-  > 为什么不？如果你有一个相当复杂的函数，你或许可以把逻辑部分转移到一个函数声明上。
+    > 为什么不？如果你有一个相当复杂的函数，你或许可以把逻辑部分转移到一个函数声明上。
 
     ```javascript
     // bad
     [1, 2, 3].map(function (x) {
-      return x * x;
+      const y = x + 1;
+      return x * y;
     });
 
     // good
     [1, 2, 3].map((x) => {
-      return x * x;
+      const y = x + 1;
+      return x * y;
     });
     ```
 
   - [8.2](#8.2) <a name='8.2'></a> 如果一个函数适合用一行写出并且只有一个参数，那就把花括号、圆括号和 `return` 都省略掉。如果不是，那就不要省略。
 
-  > 为什么？语法糖。在链式调用中可读性很高。
+    > 为什么？语法糖。在链式调用中可读性很高。
 
-  > 为什么不？当你打算回传一个对象的时候。
+    > 为什么不？当你打算回传一个对象的时候。
 
     ```javascript
     // good
@@ -625,7 +627,7 @@ ES5 的编码规范请查看[版本一](https://github.com/sivan/javascript-styl
 
   - [9.1](#9.1) <a name='9.1'></a> 总是使用 `class`。避免直接操作 `prototype` 。
 
-  > 为什么? 因为 `class` 语法更为简洁更易读。
+    > 为什么? 因为 `class` 语法更为简洁更易读。
 
     ```javascript
     // bad
@@ -654,7 +656,7 @@ ES5 的编码规范请查看[版本一](https://github.com/sivan/javascript-styl
 
   - [9.2](#9.2) <a name='9.2'></a> 使用 `extends` 继承。
 
-  > 为什么？因为 `extends` 是一个内建的原型继承方法并且不会破坏 `instanceof`。
+    > 为什么？因为 `extends` 是一个内建的原型继承方法并且不会破坏 `instanceof`。
 
     ```javascript
     // bad
@@ -737,7 +739,7 @@ ES5 的编码规范请查看[版本一](https://github.com/sivan/javascript-styl
 
   - [10.1](#10.1) <a name='10.1'></a> 总是使用模组 (`import`/`export`) 而不是其他非标准模块系统。你可以编译为你喜欢的模块系统。
 
-  > 为什么？模块就是未来，让我们开始迈向未来吧。
+    > 为什么？模块就是未来，让我们开始迈向未来吧。
 
     ```javascript
     // bad
@@ -755,7 +757,7 @@ ES5 的编码规范请查看[版本一](https://github.com/sivan/javascript-styl
 
   - [10.2](#10.2) <a name='10.2'></a> 不要使用通配符 import。
 
-  > 为什么？这样能确保你只有一个默认 export。
+    > 为什么？这样能确保你只有一个默认 export。
 
     ```javascript
     // bad
@@ -767,7 +769,7 @@ ES5 的编码规范请查看[版本一](https://github.com/sivan/javascript-styl
 
   - [10.3](#10.3) <a name='10.3'></a>不要从 import 中直接 export。
 
-  > 为什么？虽然一行代码简洁明了，但让 import 和 export 各司其职让事情能保持一致。
+    > 为什么？虽然一行代码简洁明了，但让 import 和 export 各司其职让事情能保持一致。
 
     ```javascript
     // bad
@@ -787,7 +789,7 @@ ES5 的编码规范请查看[版本一](https://github.com/sivan/javascript-styl
 
   - [11.1](#11.1) <a name='11.1'></a> 不要使用 iterators。使用高阶函数例如 `map()` 和 `reduce()` 替代 `for-of`。
 
-  > 为什么？这加强了我们不变的规则。处理纯函数的回调值更易读，这比它带来的副作用更重要。
+    > 为什么？这加强了我们不变的规则。处理纯函数的回调值更易读，这比它带来的副作用更重要。
 
     ```javascript
     const numbers = [1, 2, 3, 4, 5];
@@ -888,7 +890,7 @@ ES5 的编码规范请查看[版本一](https://github.com/sivan/javascript-styl
 
   - [13.3](#13.3) <a name='13.3'></a> 将所有的 `const` 和 `let` 分组
 
-  > 为什么？当你需要把已赋值变量赋值给未赋值变量时非常有用。
+    > 为什么？当你需要把已赋值变量赋值给未赋值变量时非常有用。
 
     ```javascript
     // bad
@@ -913,7 +915,7 @@ ES5 的编码规范请查看[版本一](https://github.com/sivan/javascript-styl
 
   - [13.4](#13.4) <a name='13.4'></a> 在你需要的地方给变量赋值，但请把它们放在一个合理的位置。
 
-  > 为什么？`let` 和 `const` 是块级作用域而不是函数作用域。
+    > 为什么？`let` 和 `const` 是块级作用域而不是函数作用域。
 
     ```javascript
     // good
@@ -1468,7 +1470,7 @@ ES5 的编码规范请查看[版本一](https://github.com/sivan/javascript-styl
 
   - [19.2](#19.2) <a name='19.2'></a> 增加结尾的逗号: **需要**。
 
-  > 为什么? 这会让 git diffs 更干净。另外，像 babel 这样的转译器会移除结尾多余的逗号，也就是说你不必担心老旧浏览器的[尾逗号问题](es5/README.md#commas)。
+    > 为什么? 这会让 git diffs 更干净。另外，像 babel 这样的转译器会移除结尾多余的逗号，也就是说你不必担心老旧浏览器的[尾逗号问题](es5/README.md#commas)。
 
     ```javascript
     // bad - git diff without trailing comma
